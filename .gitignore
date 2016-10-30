@@ -6,7 +6,7 @@ jspm_packages
 
 
 ### NetBeans ###
-nbproject/private/
+nbproject/
 build/
 nbbuild/
 dist/
