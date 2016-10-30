@@ -280,6 +280,8 @@ SystemJS.config({
     "npm:@*/*.json",
     "npm:*.json"
   ],
-  map: {},
+  map: {
+    "highlight.js": "npm:highlight.js@9.7.0"
+  },
   packages: {}
 });
