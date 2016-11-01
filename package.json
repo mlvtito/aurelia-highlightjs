@@ -6,11 +6,13 @@
   "main": "dist/hljs.js",
   "repository": "gitlab:mlvtito/aurelia-highlightjs",
   "scripts": {
-    "clean": "rm -rf node_modules dist",
+    "postinstall": "./node_modules/.bin/typings install",
+    "clean": "rm -rf typings node_modules dist",
     "build": "./node_modules/typescript/bin/tsc && cp -p src/hljs.html dist/"
   },
   "devDependencies": {
-    "typescript": "^2.0.6"
+    "typescript": "^2.0.6",
+    "typings": "^1.5.0"
   },
   "dependencies": {
     "aurelia-framework": "^1.0.7",
