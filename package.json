@@ -1,13 +1,10 @@
 {
   "name": "aurelia-highlightjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Aurelia component for highlight.js",
   "license": "Apache-2.0",
   "main": "dist/hljs.js",
-  "repository": {
-      "type": "git",
-      "url": "https://github.com/mlvtito/aurelia-highlightjs.git"
-  },
+  "repository": "gitlab:mlvtito/aurelia-highlightjs",
   "devDependencies": {},
   "dependencies": {
     "aurelia-framework": "^1.0.7",
