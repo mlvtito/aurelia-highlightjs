@@ -15,8 +15,10 @@
     "typings": "^1.5.0"
   },
   "dependencies": {
+    "@types/highlight.js": "^9.1.8",
     "aurelia-framework": "^1.0.7",
     "aurelia-polyfills": "^1.1.1",
-    "aurelia-templating": "^1.1.2"
+    "aurelia-templating": "^1.1.2",
+    "highlight.js": "^9.8.0"
   }
 }

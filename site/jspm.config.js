@@ -316,15 +316,9 @@ SystemJS.config({
     "aurelia-templating": "npm:aurelia-templating@1.1.2",
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.1.1",
-    "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0"
+    "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0",
+    "highlight.js": "npm:highlight.js@9.8.0",
+    "highlightjs": "github:components/highlightjs@9.8.0"
   },
-  packages: {
-    "npm:aurelia-highlightjs@0.0.4": {
-      "map": {
-        "aurelia-polyfills": "npm:aurelia-polyfills@1.1.1",
-        "aurelia-templating": "npm:aurelia-templating@1.1.2",
-        "aurelia-framework": "npm:aurelia-framework@1.0.7"
-      }
-    }
-  }
+  packages: {}
 });
