@@ -317,8 +317,7 @@ SystemJS.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.1.1",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0",
-    "highlight.js": "npm:highlight.js@9.8.0",
-    "highlightjs": "github:components/highlightjs@9.8.0"
+    "highlight.js": "npm:highlight.js@9.8.0"
   },
   packages: {}
 });
