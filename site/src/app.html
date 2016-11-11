@@ -1,12 +1,15 @@
 <template>
     <require from="aurelia-highlightjs"></require>
-    <hljs>
-        public class Test {
+    <hljs>        public class Test {
+          private String myVar;
+          
+          public String getMyVar() {
+            return this.myVar;
+          }
         }
     </hljs>
     <br/>
-    <hljs>
-        public class Dog {
+    <hljs>        public class Dog {
         }
     </hljs>
 </template>
