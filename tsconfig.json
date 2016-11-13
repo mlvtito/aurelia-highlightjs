@@ -1,27 +1,3 @@
-//{
-//    "compilerOptions": {
-//        "baseUrl": ".",
-//        "module": "system",
-//        "noImplicitAny": true,
-//        "removeComments": true,
-//        "preserveConstEnums": true,
-////        "outFile": "./build/tsc.js",
-//        "outDir": "./build/",
-//        "sourceMap": true,
-//        "experimentalDecorators": true,
-//        "paths": {
-//            "aurelia-templating": ["node_modules/aurelia-templating/dist/aurelia-templating.d.ts"]
-//        }
-//    },
-//    "include": [
-//        "src/**/*"
-//    ],
-//    "exclude": [
-//        "node_modules",
-//        "**/*.spec.ts"
-//    ]
-//}
-
 {
     "compilerOptions": {
         "target": "ES6",

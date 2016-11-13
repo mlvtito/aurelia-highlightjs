@@ -1,4 +1,6 @@
 <template>
     <require from='highlight.js/styles/darcula.css'></require>
-    <pre><code class='java'><slot></slot></code></pre>
+    <pre>
+        <code id.bind="id" class='${language}'><slot></slot></code>
+    </pre>
 </template>

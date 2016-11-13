@@ -4,6 +4,7 @@
     "main": "app.ts",
     "dependencies": {
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.1",
+      "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.1",
       "aurelia-highlightjs": "npm:aurelia-highlightjs@^0.0.4",
       "highlight.js": "npm:highlight.js@^9.8.0",
       "highlightjs": "github:components/highlightjs@^9.8.0"

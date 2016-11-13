@@ -64,3 +64,4 @@ typings/
 .nbignore
 yarn.lock
 dist-site
+superstatic.json

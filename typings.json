@@ -21,7 +21,6 @@
     "aurelia-task-queue": "github:aurelia/task-queue",
     "aurelia-templating": "github:aurelia/templating",
     "aurelia-templating-binding": "github:aurelia/templating-binding",
-    "aurelia-templating-resources": "github:aurelia/templating-resources",
-    "aurelia-templating-router": "github:aurelia/templating-router"
+    "aurelia-templating-resources": "github:aurelia/templating-resources"
   }
 }
