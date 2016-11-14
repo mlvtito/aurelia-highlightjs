@@ -299,7 +299,6 @@ SystemJS.config({
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.0",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0",
     "aurelia-framework": "npm:aurelia-framework@1.0.7",
-    "aurelia-highlightjs": "local:aurelia-highlightjs@current",
     "aurelia-history": "npm:aurelia-history@1.0.0",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0",
     "aurelia-loader": "npm:aurelia-loader@1.0.0",
@@ -318,7 +317,8 @@ SystemJS.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.1.1",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0",
-    "highlight.js": "npm:highlight.js@9.8.0"
+    "highlight.js": "npm:highlight.js@9.8.0",
+    "aurelia-highlightjs": "local:aurelia-highlightjs@current"
   },
   packages: {}
 });
