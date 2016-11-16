@@ -19,7 +19,7 @@ export class Hljs {
 
     attached() {
         if (!this.hasInclude()) {
-            this.highlight();
+            this.highlightToDom();
         }
     }
 
@@ -30,12 +30,11 @@ export class Hljs {
                 this.extractLanguageFromContentType(contentType);
                 return response.text()
             }).then(data => {
-                this.highlight(data);
+                this.highlightToDom(data);
             });
     }
 
     private extractLanguageFromContentType(contentType: string) {
-        console.log("CLASSNAME : " + document.querySelector("#" + this.id).className);
         if (contentType != null) {
             let extracted = contentType.split(";")[0].trim();
             if (extracted != null && this.contentTypeMap[extracted] != null) {
@@ -46,21 +45,26 @@ export class Hljs {
         }
     }
 
-    private highlight(data?: string) {
-        if( data != null ) {
-            if (this.language ) {
-                let result: hljs.IHighlightResult = hljs.highlight(this.language, data);
-                document.querySelector("#" + this.id).innerHTML = result.value;
-            }else {
-                let result: hljs.IAutoHighlightResult = hljs.highlightAuto(data);
-                this.language = result.language;
-                document.querySelector("#" + this.id).innerHTML = result.value;
-            }
-        }else {
+    private highlightToDom(data?: string) {
+        if (data != null) {
+            let result: hljs.IHighlightResultBase = this.highlight(data);
+            this.language = result.language;
+            this.fixMarkupAndAppendToDom(result.value);
+        } else {
             hljs.highlightBlock(document.querySelector("#" + this.id));
         }
     }
-    
+
+    private highlight(data: string): hljs.IHighlightResultBase {
+        return this.language ?
+            hljs.highlight(this.language, data, true)
+            : hljs.highlightAuto(data);
+    }
+
+    private fixMarkupAndAppendToDom(value: string) {
+        value = hljs.fixMarkup(value);
+        document.querySelector("#" + this.id).innerHTML = value;
+    }
     private hasInclude(): boolean {
         return this.include != null;
     }
