@@ -3,7 +3,7 @@
     <div class="ink-grid">
         <div class="column-group horizontal-gutters">
             <div class="all-100 top-space">
-                <h1 class="top-space">aurelia highlight.js component</h1>
+                <h1 class="top-space">Aurelia highlight.js component</h1>
             </div>
             <div class="all-50">
                 <hljs include.bind="includePath"></hljs>
@@ -13,10 +13,7 @@
                     <div class="control-group">
                         <label for="theme">Theme</label>
                         <div class="control">
-                            <select id="theme" name="theme" value.bind="theme" change.trigger="test()">
-                                <option>Darcula</option>
-                                <option>VS</option>
-                            </select>
+                            <input id="theme" type="text" name="theme" value="Darcula" disabled/>
                         </div>
                     </div>
                     <div class="control-group">

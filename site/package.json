@@ -1,4 +1,8 @@
 {
+  "name": "aurelia-highlightjs-site",
+  "version": "0.0.4",
+  "description": "Demo site for Aurelia highlight.js component",
+  "license": "Apache-2.0",
   "jspm": {
     "name": "app",
     "main": "app.ts",
