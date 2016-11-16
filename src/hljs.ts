@@ -35,6 +35,7 @@ export class Hljs {
     }
 
     private extractLanguageFromContentType(contentType: string) {
+        console.log("CLASSNAME : " + document.querySelector("#" + this.id).className);
         if (contentType != null) {
             let extracted = contentType.split(";")[0].trim();
             if (extracted != null && this.contentTypeMap[extracted] != null) {
@@ -47,9 +48,17 @@ export class Hljs {
 
     private highlight(data?: string) {
         if( data != null ) {
-            document.querySelector("#" + this.id).innerHTML = data;
+            if (this.language ) {
+                let result: hljs.IHighlightResult = hljs.highlight(this.language, data);
+                document.querySelector("#" + this.id).innerHTML = result.value;
+            }else {
+                let result: hljs.IAutoHighlightResult = hljs.highlightAuto(data);
+                this.language = result.language;
+                document.querySelector("#" + this.id).innerHTML = result.value;
+            }
+        }else {
+            hljs.highlightBlock(document.querySelector("#" + this.id));
         }
-        hljs.highlightBlock(document.querySelector("#" + this.id));
     }
     
     private hasInclude(): boolean {
