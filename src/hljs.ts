@@ -14,7 +14,8 @@ export class Hljs {
     private contentTypeMap = {
         "application/x-sql": "sql",
         "text/x-java-source": "java",
-        "text/css": "css"
+        "text/css": "css",
+        "application/x-sh": "bash"
     };
 
     attached() {
@@ -27,6 +28,7 @@ export class Hljs {
         this.httpClient.fetch(this.include)
             .then(response => {
                 let contentType = response.headers.get("Content-Type");
+                console.log("######## CONTENT-TYPE : " + contentType);
                 this.extractLanguageFromContentType(contentType);
                 return response.text()
             }).then(data => {
