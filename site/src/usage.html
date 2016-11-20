@@ -1,0 +1,33 @@
+<template>
+    <require from="aurelia-highlightjs"></require>
+    <div class="column-group horizontal-gutters">
+        <div class="all-50">
+            Basicly the Aurelia highlight.js custom element will highlight the 
+            content of the tag. For instance, this source code in your view...
+            <hljs language="html">&lt;hljs&gt;
+public class MyClass {
+}
+&lt/hljs&gt</hljs>
+        </div>
+        <div class="all-50">
+            ...will rendered like this.
+            <hljs>
+public class MyClass {
+}                    
+            </hljs>
+        </div>
+    </div>
+    <h5>language property</h5>
+    This property provide a way to force the language syntax used to 
+    highlight the code. If language property is not set, the custom element 
+    will use the language detection built-in highlight.js.
+    <hljs language="html">&lt;hljs language="java"&gt;
+public class MyClass {
+}
+&lt/hljs&gt</hljs>
+    There is more than 160 languages available with highlight.js. Got to the 
+    <a href="https://highlightjs.org/static/demo/">highlight.js demo</a> to 
+    have a complete list.
+
+    <h5>include property</h5>
+</template>
