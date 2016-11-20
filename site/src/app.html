@@ -1,10 +1,13 @@
 <template>
     <require from="aurelia-highlightjs"></require>
-    <div class="ink-grid">
-        <div class="column-group horizontal-gutters">
-            <div class="all-100 top-space">
-                <h1 class="top-space">Aurelia highlight.js component</h1>
-            </div>
+    <div class="column-group" style="background-color: rgb(40, 60, 84);">
+        <div class="all-100 top-space left-space">
+            <h1 style="color: white;">Aurelia highlight.js component</h1>
+        </div>
+    </div>
+    <div class="ink-grid top-space">
+        <h2>Demo</h2>
+        <div class="column-group horizontal-gutters"">
             <div class="all-50">
                 <hljs include.bind="includePath"></hljs>
             </div>
@@ -13,7 +16,8 @@
                     <div class="control-group">
                         <label for="theme">Theme</label>
                         <div class="control">
-                            <input id="theme" type="text" name="theme" value="Darcula" disabled/>
+                            <input id="theme" type="text" name="theme" 
+                                   value="Darcula" disabled/>
                         </div>
                     </div>
                     <div class="control-group">
@@ -36,5 +40,58 @@
                 </form>
             </div>
         </div>
+
+
+
+        <h2>Installation</h2>
+        First you need to install aurelia-highlightjs with your favorite package manager.
+        <div class="column-group horizontal-gutters">
+            <div class="all-50">
+                <h5>npm</h5>
+                <hljs language="bash">npm install aurelia-highlightjs --save</hljs>
+            </div>
+            <div class="all-50">
+                <h5>jspm</h5>
+                <hljs language="bash">jspm install aurelia-highlightjs --save</hljs>
+            </div>
+        </div>
+        Then import the Aurelia highlight.js custom element into your view.
+        <hljs language="html">&lt;require from="aurelia-highlightjs"&gt;&lt;/require&gt;</hljs>
+
+
+
+        <h2>Usage</h2>
+        <div class="column-group horizontal-gutters">
+            <div class="all-50">
+                Basicly the Aurelia highlight.js custom element will highlight the 
+        content of the tag. For instance, this source code in your view...
+                <hljs language="html">&lt;hljs&gt;
+public class MyClass {
+}
+&lt/hljs&gt</hljs>
+            </div>
+            <div class="all-50">
+                ...will rendered like this.
+                <hljs>
+public class MyClass {
+}                    
+                </hljs>
+            </div>
+        </div>
+        <h5>language property</h5>
+        This property provide a way to force the language syntax used to 
+        highlight the code. If language property is not set, the custom element 
+        will use the language detection built-in highlight.js.
+        <hljs language="html">&lt;hljs language="java"&gt;
+public class MyClass {
+}
+&lt/hljs&gt</hljs>
+        There is more than 160 languages available with highlight.js. Got to the 
+        <a href="https://highlightjs.org/static/demo/">highlight.js demo</a> to 
+        have a complete list.
+        
+        <h5>include property</h5>
+        <h2>License</h2>
     </div>
+
 </template>
