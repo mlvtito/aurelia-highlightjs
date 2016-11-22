@@ -1,13 +1,17 @@
 <template>
-    <nav class="ink-navigation">
-        <ul class="menu horizontal flat blue-rwx all-100">
-            <li><h1>Aurelia highlight.js</h1></li>
-            <li repeat.for="row of router.navigation" 
-                class="${row.isActive? 'active' : ''}">
-                <a href.bind="row.href">${row.title}</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="topbar">
+        <nav class="ink-navigation ink-grid">
+            <ul class="menu horizontal blue-rwx push-left">
+                <li><h1><a href.bind="router.navigation[0].href">Aurelia highlight.js</a></h1></li>
+            </ul>
+            <ul class="menu horizontal blue-rwx push-right">
+                <li repeat.for="row of router.navigation" 
+                    class="${row.isActive? 'active' : ''}">
+                    <a href.bind="row.href">${row.title}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <div class="ink-grid top-space">
         <router-view></router-view>
     </div>
