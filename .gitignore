@@ -60,11 +60,9 @@ node_modules
 *.tgz
 
 typings/
-
 .nbignore
 yarn.lock
 dist-site
-superstatic.json
 bundles
 /site/lib/
 /site/local_packes/aurelia-highlightjs@$current/

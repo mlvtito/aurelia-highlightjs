@@ -60,4 +60,6 @@ node_modules
 
 typings/
 .nbignore
+yarn.lock
+dist-site
 /site
