@@ -9,14 +9,18 @@
     "site_local": "site/local_packages/aurelia-highlightjs@current"
   },
   "scripts": {
-    "postinstall": "typings install",
-    "clean": "rimraf typings node_modules yarn.lock dist dist-site",
+    "postinstall": "typings install && cd site && npm install",
+    "clean": "rimraf typings node_modules yarn.lock dist dist-site && cd site && npm run clean",
     "build-lib": "tsc && cp -p src/hljs.html dist/",
+        
     "site-delete-local": "rimraf ./site/local_packages/aurelia-highlightjs@current",
     "site-create-local": "mkdir -p ./site/local_packages/aurelia-highlightjs@current",
     "site-copy-lib": "cp -r ./dist ./site/local_packages/aurelia-highlightjs@current/",
     "site-deploy": "npm-run-all site-delete-local site-create-local site-copy-lib",
-    "install-site": "cd site && npm install"
+        
+    "site-create-dist": "rimraf dist-site && mkdir -p dist-site",
+    "site-pack": "cd site && npm pack && mv aurelia-highlightjs-site*.tgz ../dist-site/",
+    "site-build": "npm-run-all site-create-dist site-pack",
   },
   "devDependencies": {
     "npm-run-all": "^3.1.1",

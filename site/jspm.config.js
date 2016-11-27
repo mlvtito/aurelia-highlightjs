@@ -271,16 +271,7 @@ SystemJS.config({
           "loader": "plugin-typescript"
         }
       }
-    },
-    "github:twbs/bootstrap@3.3.7": {
-      "map": {
-        "jquery": "npm:jquery@3.1.1"
-      }
     }
-  },
-  map: {
-    "bootstrap": "github:twbs/bootstrap@3.3.7",
-    "aurelia-highlightjs": "local:aurelia-highlightjs@current"
   }
 });
 
@@ -317,7 +308,8 @@ SystemJS.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.1.1",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0",
-    "highlight.js": "npm:highlight.js@9.8.0"
+    "highlight.js": "npm:highlight.js@9.8.0",
+    "aurelia-highlightjs": "local:aurelia-highlightjs@current"
   },
   packages: {}
 });
