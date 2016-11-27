@@ -5,13 +5,21 @@
   "license": "Apache-2.0",
   "main": "dist/hljs.js",
   "repository": "gitlab:mlvtito/aurelia-highlightjs",
+  "config": {
+    "site_local": "site/local_packages/aurelia-highlightjs@current"
+  },
   "scripts": {
-    "postinstall": "./node_modules/.bin/typings install",
+    "postinstall": "typings install",
     "clean": "rimraf typings node_modules yarn.lock dist dist-site",
-    "build": "./node_modules/typescript/bin/tsc && cp -p src/hljs.html dist/",
+    "build-lib": "tsc && cp -p src/hljs.html dist/",
+    "site-delete-local": "rimraf ./site/local_packages/aurelia-highlightjs@current",
+    "site-create-local": "mkdir -p ./site/local_packages/aurelia-highlightjs@current",
+    "site-copy-lib": "cp -r ./dist ./site/local_packages/aurelia-highlightjs@current/",
+    "site-deploy": "npm-run-all site-delete-local site-create-local site-copy-lib",
     "install-site": "cd site && npm install"
   },
   "devDependencies": {
+    "npm-run-all": "^3.1.1",
     "typescript": "^2.0.6",
     "typings": "^1.5.0"
   },
