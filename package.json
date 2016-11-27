@@ -7,9 +7,9 @@
   "repository": "gitlab:mlvtito/aurelia-highlightjs",
   "scripts": {
     "postinstall": "./node_modules/.bin/typings install",
-    "clean": "rm -rf typings node_modules yarn.lock dist dist-site",
+    "clean": "rimraf typings node_modules yarn.lock dist dist-site",
     "build": "./node_modules/typescript/bin/tsc && cp -p src/hljs.html dist/",
-    "build-site": "VSITE=$(date +'%s') && rm -rf dist-site && mkdir -p dist-site/local_packages/aurelia-highlightjs@${VSITE} && cp -pr site/* dist-site/ && cp -pr dist dist-site/local_packages/aurelia-highlightjs@${VSITE}/ && mv dist-site/local_packages/aurelia-highlightjs@current.json dist-site/local_packages/aurelia-highlightjs@${VSITE}.json && cp -p package.json dist-site/local_packages/aurelia-highlightjs@${VSITE}/ && sed \"s/current/${VSITE}/g\" site/jspm.config.js > dist-site/jspm.config.js"
+    "install-site": "cd site && npm install"
   },
   "devDependencies": {
     "typescript": "^2.0.6",

@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "typings install && jspm install -y",
     "clean": "rimraf typings jspm_packages yarn.lock node_modules",
-    "bundle-dependencies": "node ./npm-scripts/bundle.js plugin-typescript",
+    "bundle-dependencies": "node ./npm-scripts/bundle.js + plugin-typescript bundles/dependencies.bundle.js --inject --minify",
+    "bundle": "node ./npm-scripts/bundle.js + aurelia-highlightjs + src/**/*.ts lib/hljs-site.bundle.min.js --minify",
     "unbundle": "jspm unbundle"
   },
   "jspm": {

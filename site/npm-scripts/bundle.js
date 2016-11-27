@@ -1,39 +1,38 @@
 var pjson = require(process.cwd() + '/package.json');
-var packages;
+var parameters = ['bundle'];
+var isPackagesAddedToParameters = false;
 
-for(var key in pjson.jspm.dependencies) {
+for (var key in pjson.jspm.dependencies) {
     addPackage(key);
 }
 
-for(var key in pjson.jspm.peerDependencies) {
+for (var key in pjson.jspm.peerDependencies) {
     addPackage(key);
 }
 
 process.argv.forEach(function (val, index, array) {
-    if( index > 1 ) {
-        addPackage(val);
+    if (index > 1) {
+        parameters.push(val);
     }
 });
 
-spawn = require( 'child_process' ).spawn,
-jspm = spawn( 'jspm', [ "bundle", packages, 'bundles/dependencies.bundle.js', "--inject", "--minify" ] );
+spawn = require('child_process').spawn;
+jspm = spawn('jspm', parameters);//, 'bundles/dependencies.bundle.js', "--inject", "--minify" ] );
 
-jspm.stdout.on( 'data', data => {
-    console.log( `${data}` );
+jspm.stdout.on('data', data => {
+    process.stdout.write(`${data}`);
 });
 
-jspm.stderr.on( 'data', data => {
-    console.log( `${data}` );
-});
-
-jspm.on( 'close', code => {
-    console.log( `child process exited with code ${code}` );
+jspm.stderr.on('data', data => {
+    process.stdout.write(`${data}`);
 });
 
 function addPackage(packageName) {
-    if( packages !== undefined ) {
-        packages = packages + " + " + packageName;
-    }else {
-        packages = packageName;
+    if (isPackagesAddedToParameters) {
+        parameters.push('+');
+        parameters.push(packageName);
+    } else {
+        parameters.push(packageName);
+        isPackagesAddedToParameters = true;
     }
 }
