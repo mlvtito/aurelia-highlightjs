@@ -19,28 +19,15 @@
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.1",
       "highlight.js": "npm:highlight.js@^9.8.0",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.3.1",
       "systemjs-plugin-text": "npm:systemjs-plugin-text@^0.0.9"
     },
     "devDependencies": {
-      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
-      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
-      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
-      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
-      "events": "npm:jspm-nodelibs-events@^0.2.0",
-      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
       "http": "npm:jspm-nodelibs-http@^0.2.0",
-      "net": "npm:jspm-nodelibs-net@^0.2.0",
-      "os": "npm:jspm-nodelibs-os@^0.2.0",
-      "path": "npm:jspm-nodelibs-path@^0.2.0",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.2.9",
-      "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
-      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
-      "url": "npm:jspm-nodelibs-url@^0.2.0",
-      "util": "npm:jspm-nodelibs-util@^0.2.0",
-      "vm": "npm:jspm-nodelibs-vm@^0.2.0"
+      "url": "npm:jspm-nodelibs-url@^0.2.0"
     },
     "peerDependencies": {
+      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "aurelia-binding": "npm:aurelia-binding@^1.0.0",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@^1.0.0",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0",
@@ -62,7 +49,20 @@
       "aurelia-templating": "npm:aurelia-templating@^1.0.0",
       "aurelia-templating-binding": "npm:aurelia-templating-binding@^1.0.0",
       "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0",
-      "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0"
+      "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0",
+      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
+      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
+      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+      "events": "npm:jspm-nodelibs-events@^0.2.0",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "os": "npm:jspm-nodelibs-os@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "process": "npm:jspm-nodelibs-process@^0.2.0",
+      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
+      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
+      "util": "npm:jspm-nodelibs-util@^0.2.0",
+      "vm": "npm:jspm-nodelibs-vm@^0.2.0"
     },
     "overrides": {
       "npm:inherits@2.0.3": {
@@ -70,7 +70,7 @@
           "test.js"
         ]
       },
-      "npm:typescript@2.0.6": {
+      "npm:typescript@2.1.1": {
         "browser": {},
         "map": {
           "buffer": "@empty",
