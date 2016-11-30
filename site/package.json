@@ -9,7 +9,7 @@
     "bundle-dev": "node ./npm-scripts/bundle.js + plugin-typescript bundles/dependencies.bundle.js --inject --minify",
     "bundle-app": "jspm bundle src/**/*.ts + src/**/*.html!text lib/hljs-site.min.js --minify",
     "bundle-deps": "node ./npm-scripts/bundle.js + aurelia-highlightjs lib/hljs-site-deps.min.js --minify",
-    "bundle": "npm run unbundle && npm run bundle-deps && npm run bundle-app"
+    "bundle": "npm run unbundle && npm run bundle-deps && npm run bundle-app",
     "unbundle": "jspm unbundle"
   },
   "jspm": {
