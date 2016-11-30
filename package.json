@@ -11,7 +11,8 @@
   "scripts": {
     "postinstall": "typings install && cd site && npm install",
     "clean": "rimraf typings node_modules yarn.lock dist dist-site && cd site && npm run clean",
-    "build-lib": "tsc && cp -p src/hljs.html dist/",
+    "bundle": "tsc && cp -p src/hljs.html dist/",
+    "bundle:site": "npm run site-deploy && cd site && npm run bundle",
         
     "site-delete-local": "rimraf ./site/local_packages/aurelia-highlightjs@current",
     "site-create-local": "mkdir -p ./site/local_packages/aurelia-highlightjs@current",
@@ -20,7 +21,7 @@
         
     "site-create-dist": "rimraf dist-site && mkdir -p dist-site",
     "site-pack": "cd site && npm pack && mv aurelia-highlightjs-site*.tgz ../dist-site/",
-    "site-build": "npm-run-all site-create-dist site-pack",
+    "site-package": "npm-run-all site-create-dist site-pack",
   },
   "devDependencies": {
     "npm-run-all": "^3.1.1",
