@@ -7,7 +7,8 @@
     "postinstall": "typings install && jspm install -y",
     "clean": "rimraf typings jspm_packages yarn.lock node_modules",
     "bundle-dependencies": "node ./npm-scripts/bundle.js + plugin-typescript bundles/dependencies.bundle.js --inject --minify",
-    "bundle": "node ./npm-scripts/bundle.js + aurelia-highlightjs + src/**/*.ts lib/hljs-site.bundle.min.js --minify",
+    "bundle-app": "jspm bundle src/**/*.ts + src/**/*.html!text lib/hljs-site-${npm_package_version}.min.js --minify",
+    "bundle": "node ./npm-scripts/bundle.js + aurelia-highlightjs lib/hljs-site-deps-${npm_package_version}.min.js --minify",
     "unbundle": "jspm unbundle"
   },
   "jspm": {
@@ -16,7 +17,8 @@
     "dependencies": {
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.1",
-      "highlight.js": "npm:highlight.js@^9.8.0"
+      "highlight.js": "npm:highlight.js@^9.8.0",
+      "systemjs-plugin-text": "npm:systemjs-plugin-text@^0.0.9"
     },
     "devDependencies": {
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
