@@ -119,7 +119,8 @@ SystemJS.config({
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0",
     "highlight.js": "npm:highlight.js@9.8.0",
     "util": "npm:jspm-nodelibs-util@0.2.1",
-    "vm": "npm:jspm-nodelibs-vm@0.2.0"
+    "vm": "npm:jspm-nodelibs-vm@0.2.0",
+    "source-map-support": "@empty"
   },
   packages: {
     "npm:jspm-nodelibs-os@0.2.0": {
