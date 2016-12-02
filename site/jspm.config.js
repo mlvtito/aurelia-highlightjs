@@ -11,7 +11,9 @@ SystemJS.config({
   devConfig: {
     "map": {
       "http": "npm:jspm-nodelibs-http@0.2.0",
-      "url": "npm:jspm-nodelibs-url@0.2.0"
+      "url": "npm:jspm-nodelibs-url@0.2.0",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@5.3.1",
+      "systemjs-plugin-text": "npm:systemjs-plugin-text@0.0.9"
     },
     "packages": {
       "npm:jspm-nodelibs-http@0.2.0": {
@@ -49,6 +51,11 @@ SystemJS.config({
           "punycode": "npm:punycode@1.3.2",
           "querystring": "npm:querystring@0.2.0"
         }
+      },
+      "github:frankwallis/plugin-typescript@5.3.1": {
+        "map": {
+          "typescript": "npm:typescript@2.1.1"
+        }
       }
     }
   },
@@ -66,7 +73,8 @@ SystemJS.config({
   },
   map: {
     "aurelia-highlightjs": "local:aurelia-highlightjs@current",
-    "text": "npm:systemjs-plugin-text@0.0.9"
+    "text": "npm:systemjs-plugin-text@0.0.9",
+    "source-map-support": "@empty"
   }
 });
 
@@ -88,11 +96,9 @@ SystemJS.config({
     "net": "npm:jspm-nodelibs-net@0.2.0",
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
-    "plugin-typescript": "github:frankwallis/plugin-typescript@5.3.1",
     "process": "npm:jspm-nodelibs-process@0.2.0",
     "stream": "npm:jspm-nodelibs-stream@0.2.0",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.0",
-    "systemjs-plugin-text": "npm:systemjs-plugin-text@0.0.9",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.1",
     "aurelia-binding": "npm:aurelia-binding@1.0.9",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.1",
@@ -119,8 +125,7 @@ SystemJS.config({
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0",
     "highlight.js": "npm:highlight.js@9.8.0",
     "util": "npm:jspm-nodelibs-util@0.2.1",
-    "vm": "npm:jspm-nodelibs-vm@0.2.0",
-    "source-map-support": "@empty"
+    "vm": "npm:jspm-nodelibs-vm@0.2.0"
   },
   packages: {
     "npm:jspm-nodelibs-os@0.2.0": {
@@ -298,11 +303,6 @@ SystemJS.config({
     "npm:evp_bytestokey@1.0.0": {
       "map": {
         "create-hash": "npm:create-hash@1.1.2"
-      }
-    },
-    "github:frankwallis/plugin-typescript@5.3.1": {
-      "map": {
-        "typescript": "npm:typescript@2.1.1"
       }
     },
     "npm:sha.js@2.4.8": {
