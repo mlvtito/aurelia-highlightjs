@@ -1,16 +1,17 @@
 <template>
     <require from="aurelia-highlightjs"></require>
     <div class="column-group horizontal-gutters">
-        <div class="all-50">
-            Basicly the Aurelia highlight.js custom element will highlight the 
-            content of the tag. For instance, this source code in your view...
+        <div class="tiny-100 small-100 all-50">
+            <p>Basicly the Aurelia highlight.js custom element will highlight the content of the tag. For instance, 
+                this source code in your view...
+            </p>
             <hljs language="html">&lt;hljs&gt;
 public class MyClass {
 }
 &lt/hljs&gt</hljs>
         </div>
-        <div class="all-50">
-            ...will rendered like this.
+        <div class="tiny-100 small-100 all-50">
+            <p>...will be rendered like this.</p>
             <hljs>
 public class MyClass {
 }                    
@@ -18,18 +19,20 @@ public class MyClass {
         </div>
     </div>
     <h5>language property</h5>
-    This property provide a way to force the language syntax used to 
-    highlight the code. If language property is not set, the custom element 
-    will use the language detection built-in highlight.js.
+    <p>This property provide a way to force the language syntax used to highlight the code. If language property is not 
+        set, the custom element will use the language detection built-in highlight.js.</p>
     <hljs language="html">&lt;hljs language="java"&gt;
 public class MyClass {
 }
 &lt/hljs&gt</hljs>
-    There is more than 160 languages available with highlight.js. Got to the 
+    <p>There is more than 160 languages available with highlight.js. Got to the 
     <a href="https://highlightjs.org/static/demo/">highlight.js demo</a> to 
-    have a complete list.
+    have a complete list.</p>
 
     <h5>include property</h5>
-    This property provide a way to import source code from HTTP request. Language will be guessed by examining content 
-    type.
+    <p>Instead of writing code inside "hljs" tag, you can use this property to include source code from other file. Set 
+        attribute value with file URL and hljs custom element will retreive content using Aurelia fetch client.</p>
+    <hljs language="html">&lt;hljs language="java" include="source/MyClass.java"&gt;&lt/hljs&gt</hljs>
+    <p>If there is no language specified, this custom element will try to guess the language by reading the Content-Type 
+        header. If this method does not work, the language detection built-in highlight.js will be used.</p>
 </template>
