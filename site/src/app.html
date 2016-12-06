@@ -1,10 +1,19 @@
 <template>
     <div class="topbar">
         <nav class="ink-navigation ink-grid">
-            <ul class="menu horizontal blue-rwx push-left">
-                <li><h1><a href.bind="router.navigation[0].href">Aurelia highlight.js</a></h1></li>
+            <ul class="menu horizontal blue-rwx push-left small-push-center tiny-push-center">
+                <li style="float: right;"><h1><a href.bind="router.navigation[0].href">Aurelia highlight.js</a></h1></li>
+                <li class="push-right hide-all show-tiny show-small" style="float: left;">
+                    <a><i class="fa fa-bars right-drawer-trigger"></i></a>
+                    <ul class="submenu flyout right" style="color: black;">
+                        <li><a href="#">January</a></li>
+                        <li><a href="#">February</a></li>
+                        <li><a href="#">March</a></li>
+                        <li><a href="#">...</a></li>
+                    </ul>
+                </li>
             </ul>
-            <ul class="menu horizontal blue-rwx push-right">
+            <ul class="menu horizontal blue-rwx push-right hide-small hide-tiny">
                 <li repeat.for="row of router.navigation" 
                     class="${row.isActive? 'active' : ''}">
                     <a href.bind="row.href">${row.title}</a>

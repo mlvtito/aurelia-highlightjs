@@ -25,14 +25,15 @@ public class MyClass {
 public class MyClass {
 }
 &lt/hljs&gt</hljs>
-    <p>There is more than 160 languages available with highlight.js. Got to the 
+    <p>There is more than 160 languages available with highlight.js. Go to the 
     <a href="https://highlightjs.org/static/demo/">highlight.js demo</a> to 
     have a complete list.</p>
 
     <h5>include property</h5>
     <p>Instead of writing code inside "hljs" tag, you can use this property to include source code from other file. Set 
         attribute value with file URL and hljs custom element will retreive content using Aurelia fetch client.</p>
-    <hljs language="html">&lt;hljs language="java" include="source/MyClass.java"&gt;&lt/hljs&gt</hljs>
+    <hljs language="html">&lt;hljs include="MyClass.java"&gt;&lt/hljs&gt</hljs>
     <p>If there is no language specified, this custom element will try to guess the language by reading the Content-Type 
-        header. If this method does not work, the language detection built-in highlight.js will be used.</p>
+        header in the HTTP response. If this method does not work, the language detection built-in highlight.js will be 
+        used.</p>
 </template>
