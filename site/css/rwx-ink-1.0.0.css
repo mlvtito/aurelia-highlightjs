@@ -22,6 +22,7 @@ html {
     background-color: #283C54;
     position: fixed; 
     top: 0;
+    z-index: 100;
 }
 
 .ink-navigation ul.menu.blue-rwx li a {
