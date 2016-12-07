@@ -20,6 +20,8 @@ html {
     display: inline-block; 
     width: 100%; 
     background-color: #283C54;
+    position: fixed; 
+    top: 0;
 }
 
 .ink-navigation ul.menu.blue-rwx li a {
