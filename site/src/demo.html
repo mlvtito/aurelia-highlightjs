@@ -1,12 +1,38 @@
 <template>
     <require from="aurelia-highlightjs"></require>
-    <div class="ink-grid top-space">
-        <div class="column-group horizontal-gutters"">
-            <div class="all-50">
-                <hljs include.bind="includePath"></hljs>
-            </div>
-            <div class="all-50">
-                <form class="ink-form">
+    <form class="ink-form">
+        <div class="ink-grid top-space">
+            <div class="column-group horizontal-gutters">
+                <div class="all-100 column-group horizontal-gutters hide-all show-small show-tiny">
+                    <div class="control-group all-50">
+                        <label for="theme">Theme</label>
+                        <div class="control">
+                            <input id="theme" type="text" name="theme" 
+                                   value="Darcula" disabled/>
+                        </div>
+                    </div>
+                    <div class="control-group all-50">
+                        <label for="language">Language</label>
+                        <div class="control">
+                            <select id="language" name="language" 
+                                    value.bind="language" 
+                                    change.trigger="onLanguageChange()">
+                                <option value="java">Java</option>
+                                <option value="sql">SQL</option>
+                                <option value="css">CSS</option>
+                                <option value="rb">Ruby</option>
+                                <option value="go">Go</option>
+                                <option value="ini">Ini</option>
+                                <option value="sh">Bash</option>
+                                <option value="py">Python</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="all-50 small-100 tiny-100">
+                    <hljs include.bind="includePath"></hljs>
+                </div>
+                <div class="all-50 hide-small hide-tiny">
                     <div class="control-group">
                         <label for="theme">Theme</label>
                         <div class="control">
@@ -31,8 +57,8 @@
                             </select>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </template>
