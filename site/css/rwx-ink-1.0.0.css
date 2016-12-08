@@ -29,6 +29,7 @@ html {
     color: inherit;
     text-decoration: none;
     margin-right: 0.5em;
+    outline: none;
 }
 
 .ink-navigation ul.menu.horizontal.blue-rwx li a:hover {
@@ -41,6 +42,7 @@ html {
     color: inherit;
     text-decoration: none;
     margin-right: 0em;
+    outline: none;
 }
 
 .left-drawer .ink-navigation ul.menu.blue-rwx li a:hover{
