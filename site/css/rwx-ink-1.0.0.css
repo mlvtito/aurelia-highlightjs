@@ -32,8 +32,13 @@ html {
     outline: none;
 }
 
+
+.ink-navigation ul.menu.horizontal.blue-rwx li a.left-drawer-trigger:hover {
+    padding-bottom: 0.5em;
+    border-bottom-width: 0;
+}
+
 .ink-navigation ul.menu.horizontal.blue-rwx li a:hover {
-    /*background: none repeat scroll 0% 0% #544028;*/
     padding-bottom: 0em;
     border-bottom: #544028 0.5em solid;
 }
