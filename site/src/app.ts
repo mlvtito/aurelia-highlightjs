@@ -1,7 +1,8 @@
 import {RouterConfiguration, Router} from 'aurelia-router';
-import {autoinject} from 'aurelia-framework';
+import { autoinject, containerless} from 'aurelia-framework';
 
 @autoinject
+@containerless
 export class App {
     router: Router;
     
@@ -18,5 +19,10 @@ export class App {
             { route: 'usage', name: 'usage', moduleId: './usage', nav: true, title: 'Usage' }
         ]);
         this.router = router;
+    }
+    
+    attached() {
+        console.log("APP ATTACHED");
+        new Ink.UI.Drawer();
     }
 }

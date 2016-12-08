@@ -1,13 +1,22 @@
 <template>
+    <div class="left-drawer blue-rwx">
+        <nav class="ink-navigation">
+            <ul class="menu vertical blue-rwx" style="padding-top: 3em;">
+                <li repeat.for="row of router.navigation" 
+                    class="${row.isActive? 'active' : ''}">
+                    <a href.bind="row.href">${row.title}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <div class="topbar">
         <nav class="ink-navigation ink-grid">
             <ul class="menu horizontal blue-rwx push-left small-push-center tiny-push-center">
                 <li style="float: right;"><h1><a href.bind="router.navigation[0].href" style="margin-right: 0;">Aurelia highlight.js</a></h1></li>
                 <li class="push-left hide-all show-tiny show-small">
-                    <a style="padding-left: 0;"><i class="fa fa-bars right-drawer-trigger"></i></a>
-                    <ul class="submenu flyout right" style="color: black;">
-                        <li repeat.for="row of router.navigation"><a href.bind="row.href">${row.title}</a></li>
-                    </ul>
+                    <a class="left-drawer-trigger" style="padding-left: 0;">
+                        <i class="fa fa-bars right-drawer-trigger"></i>
+                    </a>
                 </li>
             </ul>
             <ul class="menu horizontal blue-rwx push-right hide-small hide-tiny">
@@ -18,8 +27,7 @@
             </ul>
         </nav>
     </div>
-    <div class="ink-grid top-space" style="padding-top: 2em;">
+    <div class="ink-grid top-space content-drawer" style="padding-top: 2em;">
         <router-view></router-view>
     </div>
-
 </template>
