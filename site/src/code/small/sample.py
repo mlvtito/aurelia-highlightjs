@@ -23,6 +23,6 @@ t2 = datetime.now()
 # Calculates duration
 total =  t2 - t1
 
-# Printing the information to screen
+# Printing to the screen
 print 'Completed in: '
   , totalcount.balance
