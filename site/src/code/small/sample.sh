@@ -1,15 +1,7 @@
 #!/bin/bash
 
-###### CONFIG
-ACCEPTED_HOSTS="/root/.hag_accepted.conf"
-BE_VERBOSE=false
+# declare STRING variable
+STRING="Hello World"
 
-if [ "$UID" -ne 0 ]
-then
- echo "Superuser rights required"
- exit 2
-fi
-
-genApacheConf(){
- echo -e "# Host ${HOME_DIR}$1/$2 :"
-}
+#print variable on a screen
+echo $STRING

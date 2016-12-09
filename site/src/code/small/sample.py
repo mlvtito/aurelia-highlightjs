@@ -1,13 +1,28 @@
-@requires_authorization
-def somefunc(param1='', param2=0):
-    r'''A docstring'''
-    if param1 > param2: # interesting
-        print 'Gre\'ater'
-    return (param2 - param1 + 1 + 0b10l) or None
+#!/usr/bin/env python
+import socket
+import subprocess
+import sys
+import datetime
 
-class SomeClass:
-    pass
+remoteServer = "localhost"
+remoteServerIP="127.0.0.1"
 
->>> message = '''interpreter
-... prompt'''
+t1 = datetime.now()
 
+# Using port range
+# Error handling
+try:
+    scan_port()
+
+except socket.error:
+    print "Error connect"
+    sys.exit()
+
+t2 = datetime.now()
+
+# Calculates duration
+total =  t2 - t1
+
+# Printing the information to screen
+print 'Completed in: '
+  , totalcount.balance

@@ -3,10 +3,19 @@ package main
 import "fmt"
 
 func main() {
-    ch := make(chan float64)
-    ch <- 1.0e10    // magic number
-    x, ok := <- ch
-    defer fmt.Println(`exitting now\`)
-    go println(len("hello world!"))
-    return
+
+  var a string = "initial"
+  fmt.Println(a)
+
+  var b, c int = 1, 2
+  fmt.Println(b, c)
+
+  var d = true
+  fmt.Println(d)
+
+  var e int
+  fmt.Println(e)
+
+  f := "short"
+  fmt.Println(f)
 }
