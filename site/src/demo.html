@@ -30,14 +30,18 @@
                     </div>
                 </div>
                 <div class="all-50 small-100 tiny-100">
-                    <hljs include.bind="includePath" />
+                    <hljs include.bind="includePath" theme.bind="theme"/>
                 </div>
                 <div class="all-50 hide-small hide-tiny">
                     <div class="control-group">
                         <label for="theme">Theme</label>
                         <div class="control">
-                            <input id="theme" type="text" name="theme" 
-                                   value="Darcula" disabled/>
+                            <select id="theme" name="theme" value.bind="theme">
+                                <option value="darcula">Darcula</option>
+                                <option value="github">Github</option>
+                                <option value="arduino-light">Arduino Light</option>
+                                <option value="atom-one-dark">Atom One Dark</option>
+                            </select>
                         </div>
                     </div>
                     <div class="control-group">

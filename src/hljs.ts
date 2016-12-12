@@ -1,7 +1,9 @@
-import { customElement, bindable, containerless } from 'aurelia-framework';
+import { customElement, bindable, containerless, Loader, DOM } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 
 import * as hljs from 'highlight.js';
+
+declare function require(moduleNames: string[], onLoad: (...args: any[]) => void): void;
 
 @customElement('hljs')
 @containerless
@@ -11,6 +13,7 @@ export class Hljs {
     @bindable include: string;
     private static idCounter: number = 0;
     id: string = "hljsCodeTag" + Hljs.idCounter++;
+    private styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
     private contentTypeMap = {
         "application/x-sql": "sql",
@@ -18,6 +21,8 @@ export class Hljs {
         "text/css": "css",
         "application/x-sh": "bash"
     };
+
+    constructor(private loader: Loader) { }
 
     attached() {
         if (!this.hasInclude()) {
@@ -70,6 +75,25 @@ export class Hljs {
     }
     private hasInclude(): boolean {
         return this.include != null;
+    }
+
+    themeChanged() {
+        if (this.theme == null) {
+            this.theme = "default";
+        }
+        this.loadTheme();
+    }
+
+    private loadTheme() {
+        this.loader.loadText("highlight.js/styles/" + this.theme + ".css").then(text => {
+            let oldStyleHeader = this.styleHeader;
+            this.styleHeader = DOM.injectStyles(text);
+            if (oldStyleHeader != null) {
+                document.getElementsByTagName("head")[0].replaceChild(this.styleHeader, oldStyleHeader);
+            } else {
+                document.getElementsByTagName("head")[0].appendChild(this.styleHeader);
+            }
+        });
     }
 }
 

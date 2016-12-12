@@ -1,4 +1,5 @@
 export class Demo {
+    theme: string = "darcula";
     language: string = "rb";
     smallLanguage: string = "rb";
     includePath: string = "src/code/sample.rb"
