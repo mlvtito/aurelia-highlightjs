@@ -5,11 +5,16 @@
             <div class="column-group horizontal-gutters">
                 <div class="all-100 column-group horizontal-gutters hide-all show-small show-tiny">
                     <div class="control-group all-50">
-                        <label for="theme">Theme</label>
+                        <label for="smallTheme">Theme</label>
                         <div class="control">
-                            <input id="theme" type="text" name="theme" 
-                                   value="Darcula" disabled/>
+                            <select id="smallTheme" name="smallTheme" value.bind="theme">
+                                <option value="darcula">Darcula</option>
+                                <option value="github">Github</option>
+                                <option value="arduino-light">Arduino Light</option>
+                                <option value="atom-one-dark">Atom One Dark</option>
+                            </select>
                         </div>
+
                     </div>
                     <div class="control-group all-50">
                         <label for="smallLanguage">Language</label>
