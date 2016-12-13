@@ -13,7 +13,7 @@ export class Hljs {
     @bindable include: string;
     private static idCounter: number = 0;
     id: string = "hljsCodeTag" + Hljs.idCounter++;
-    private styleHeader: Node;
+    private static styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
     private contentTypeMap = {
         "application/x-sql": "sql",
@@ -86,12 +86,12 @@ export class Hljs {
 
     private loadTheme() {
         this.loader.loadText("highlight.js/styles/" + this.theme + ".css").then(text => {
-            let oldStyleHeader = this.styleHeader;
-            this.styleHeader = DOM.injectStyles(text);
+            let oldStyleHeader: Node = Hljs.styleHeader;
+            Hljs.styleHeader = DOM.injectStyles(text);
             if (oldStyleHeader != null) {
-                document.getElementsByTagName("head")[0].replaceChild(this.styleHeader, oldStyleHeader);
+                document.getElementsByTagName("head")[0].replaceChild(Hljs.styleHeader, oldStyleHeader);
             } else {
-                document.getElementsByTagName("head")[0].appendChild(this.styleHeader);
+                document.getElementsByTagName("head")[0].appendChild(Hljs.styleHeader);
             }
         });
     }
