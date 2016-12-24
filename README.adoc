@@ -1,0 +1,12 @@
+= Hello, AsciiDoc!
+Doc Writer <arnaud.fonce@r-w-x.net>
+
+Just trying Asciidoc rendering on gitbucket
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"
