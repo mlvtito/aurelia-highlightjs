@@ -1,12 +1,10 @@
-= Hello, AsciiDoc!
+= aurelia-hightlightjs
 Doc Writer <arnaud.fonce@r-w-x.net>
 
-Just trying Asciidoc rendering on gitbucket
+This is an http://aurelia.io/[Aurelia] custom element for https://highlightjs.org/[highlight.js]
 
-== First Section
+== Documentation
 
-* item 1
-* item 2
+If you are looking for documentation on how to use this custom elment, got to 
+http://aurelia-highlightjs.r-w-x.net/#/demo .
 
-[source,ruby]
-puts "Hello, World!"
