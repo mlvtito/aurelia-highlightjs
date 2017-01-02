@@ -6,5 +6,5 @@ This is an http://aurelia.io/[Aurelia] custom element for https://highlightjs.or
 == Documentation
 
 If you are looking for documentation on how to use this custom elment, got to 
-http://aurelia-highlightjs.r-w-x.net/#/demo .
+http://aurelia-highlightjs.r-w-x.net/
 
