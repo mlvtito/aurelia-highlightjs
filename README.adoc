@@ -5,6 +5,25 @@ This is an http://aurelia.io/[Aurelia] custom element for https://highlightjs.or
 
 == Documentation
 
-If you are looking for documentation on how to use this custom elment, got to 
+If you are looking for documentation on how to use this custom elment, go to 
 http://aurelia-highlightjs.r-w-x.net/
 
+== Developers
+
+First you need to bundle the lib :
+ npm run bundle
+
+Then copy the bundled lib to demo site :
+ npm run site-copy-lib
+
+Go to site folder :
+ cd ./site
+
+Bundle dependencies :
+ npm run bundle-deps
+
+Start development bundle watcher :
+ npm run bundle:watch
+
+And finally start server :
+ npm start
