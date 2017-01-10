@@ -11,6 +11,7 @@ export class Hljs {
     @bindable language: string;
     @bindable theme: string;
     @bindable include: string;
+    private effectiveLanguage: string;
     private static idCounter: number = 0;
     id: string = "hljsCodeTag" + Hljs.idCounter++;
     private static styleHeader: Node;
@@ -34,7 +35,6 @@ export class Hljs {
         this.httpClient.fetch(this.include)
             .then(response => {
                 let contentType = response.headers.get("Content-Type");
-                console.log("######## CONTENT-TYPE : " + contentType);
                 this.extractLanguageFromContentType(contentType);
                 return response.text()
             }).then(data => {
@@ -43,12 +43,14 @@ export class Hljs {
     }
 
     private extractLanguageFromContentType(contentType: string) {
-        if (contentType != null) {
+        if (!this.language  && contentType != null) {
             let extracted = contentType.split(";")[0].trim();
             if (extracted != null && this.contentTypeMap[extracted] != null) {
-                this.language = this.contentTypeMap[extracted];
+                this.effectiveLanguage = this.contentTypeMap[extracted];
+            } else if (this.language ) {
+                this.effectiveLanguage = this.language;
             } else {
-                this.language = undefined;
+                this.effectiveLanguage = undefined;
             }
         }
     }
@@ -56,7 +58,7 @@ export class Hljs {
     private highlightToDom(data?: string) {
         if (data != null) {
             let result: hljs.IHighlightResultBase = this.highlight(data);
-            this.language = result.language;
+            this.effectiveLanguage = result.language;
             this.fixMarkupAndAppendToDom(result.value);
         } else {
             hljs.highlightBlock(document.querySelector("#" + this.id));
@@ -64,8 +66,8 @@ export class Hljs {
     }
 
     private highlight(data: string): hljs.IHighlightResultBase {
-        return this.language ?
-            hljs.highlight(this.language, data, true)
+        return this.effectiveLanguage ?
+            hljs.highlight(this.effectiveLanguage, data, true)
             : hljs.highlightAuto(data);
     }
 
