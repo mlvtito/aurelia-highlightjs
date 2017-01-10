@@ -11,19 +11,29 @@ http://aurelia-highlightjs.r-w-x.net/
 == Developers
 
 First you need to bundle the lib :
+
  npm run bundle
 
 Then copy the bundled lib to demo site :
- npm run site-copy-lib
+
+ npm run site-deploy
 
 Go to site folder :
+
  cd ./site
 
 Bundle dependencies :
+
  npm run bundle-deps
 
 Start development bundle watcher :
+
  npm run bundle:watch
 
 And finally start server :
+
  npm start
+
+Finally don't forget to unbundle before commiting :
+
+ npm run unbundle
