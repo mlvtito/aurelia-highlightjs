@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "typings install && jspm install -y",
     "clean": "rimraf typings jspm_packages yarn.lock node_modules",
-    "bundle:watch": "node ./npm-scripts/bundle.js + highlight.js + src/**/*.ts + src/**/*.html!text bundles/dev.bundlejs -wip",
+    "bundle:watch": "node ./npm-scripts/bundle.js + highlight.js + src/**/*.ts + src/**/*.html!text bundles/dev.bundlejs.js -wip",
     "bundle-app": "jspm bundle systemjs-plugin-text + src/**/*.ts + src/**/*.html!text lib/hljs-site-${npm_package_version}.min.js --minify",
     "bundle-deps": "node ./npm-scripts/bundle.js + aurelia-highlightjs lib/hljs-site-deps-${npm_package_version}.min.js --minify",
     "bundle": "npm run unbundle && npm run bundle-deps && npm run bundle-app",
