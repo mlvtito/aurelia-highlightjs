@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "Aurelia component for highlight.js",
   "license": "Apache-2.0",
-  "main": "dist/hljs.js",
+  "main": "dist/inex.js",
   "repository": "gitlab:mlvtito/aurelia-highlightjs",
   "config": {
     "site_local": "site/local_packages/aurelia-highlightjs@current"
