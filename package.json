@@ -1,9 +1,15 @@
 {
   "name": "aurelia-highlightjs",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Aurelia component for highlight.js",
   "license": "Apache-2.0",
-  "main": "dist/inex.js",
+  "author": "Arnaud Fonce <arnaud.fonce@r-w-x.com>",
+  "main": "dist/index.js",
+  "keywords": [
+    "aurelia",
+    "plugin",
+    "highlightjs"
+  ],
   "repository": "gitlab:mlvtito/aurelia-highlightjs",
   "config": {
     "site_local": "site/local_packages/aurelia-highlightjs@current"
@@ -16,7 +22,7 @@
         
     "site-delete-local": "rimraf ./site/local_packages/aurelia-highlightjs@current",
     "site-create-local": "mkdir -p ./site/local_packages/aurelia-highlightjs@current",
-    "site-copy-lib": "cp -r ./dist ./site/local_packages/aurelia-highlightjs@current/",
+    "site-copy-lib": "cp -r ./dist/* ./site/local_packages/aurelia-highlightjs@current/",
     "site-deploy": "npm-run-all site-delete-local site-create-local site-copy-lib",
         
     "site-create-dist": "rimraf dist-site && mkdir -p dist-site",
@@ -26,15 +32,31 @@
   "devDependencies": {
     "npm-run-all": "^3.1.1",
     "typescript": "^2.0.6",
-    "typings": "^1.5.0"
+    "typings": "^1.5.0",
+    "@types/highlight.js": "^9.1.8",
+    "@types/whatwg-fetch": "0.0.32"
   },
   "dependencies": {
-    "@types/highlight.js": "^9.1.8",
-    "@types/whatwg-fetch": "0.0.32",
     "aurelia-fetch-client": "^1.0.1",
     "aurelia-framework": "^1.0.7",
     "aurelia-polyfills": "^1.1.1",
     "aurelia-templating": "^1.1.2",
     "highlight.js": "^9.8.0"
+  },
+  "jspm": {
+    "registry": "npm",
+    "main": "index",
+    "format": "cjs",
+    "directories": {
+      "dist": "dist"
+    },
+    "dependencies": {
+      "aurelia-fetch-client": "^1.0.1",
+      "aurelia-framework": "^1.0.7",
+      "aurelia-polyfills": "^1.1.1",
+      "aurelia-templating": "^1.1.2",
+      "highlight.js": "^9.8.0"
+    },
+    "devDependencies": {}
   }
 }

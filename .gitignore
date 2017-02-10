@@ -65,4 +65,4 @@ yarn.lock
 dist-site
 bundles
 /site/lib/
-/site/local_packes/aurelia-highlightjs@$current/
+/site/local_packages/aurelia-highlightjs@current/
