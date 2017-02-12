@@ -22,10 +22,6 @@ Go to site folder :
 
  cd ./site
 
-Bundle dependencies :
-
- npm run bundle-deps
-
 Start development bundle watcher :
 
  npm run bundle:watch
