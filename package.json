@@ -19,22 +19,19 @@
     "clean": "rimraf typings node_modules yarn.lock dist dist-site && cd site && npm run clean",
     "bundle": "node_modules/typescript/bin/tsc -v && node_modules/typescript/bin/tsc && cp -p src/hljs.html dist/",
     "bundle:site": "npm run site-deploy && cd site && npm run bundle",
-        
     "site-delete-local": "rimraf ./site/local_packages/aurelia-highlightjs@current",
     "site-create-local": "mkdir -p ./site/local_packages/aurelia-highlightjs@current",
     "site-copy-lib": "cp -r ./dist/* ./site/local_packages/aurelia-highlightjs@current/",
     "site-deploy": "npm-run-all site-delete-local site-create-local site-copy-lib",
-        
     "site-create-dist": "rimraf dist-site && mkdir -p dist-site",
     "site-pack": "cd site && npm pack && mv aurelia-highlightjs-site*.tgz ../dist-site/",
     "site-package": "npm-run-all site-create-dist site-pack"
   },
   "devDependencies": {
+    "@types/highlight.js": "^9.1.8",
     "npm-run-all": "^3.1.1",
     "typescript": "^2.0.6",
-    "typings": "^1.5.0",
-    "@types/highlight.js": "^9.1.8",
-    "@types/whatwg-fetch": "0.0.32"
+    "typings": "^1.5.0"
   },
   "dependencies": {
     "aurelia-fetch-client": "^1.0.1",
