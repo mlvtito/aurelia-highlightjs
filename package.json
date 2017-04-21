@@ -1,6 +1,6 @@
 {
   "name": "aurelia-highlightjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Aurelia component for highlight.js",
   "license": "Apache-2.0",
   "author": "Arnaud Fonce <arnaud.fonce@r-w-x.com>",
@@ -10,7 +10,7 @@
     "plugin",
     "highlightjs"
   ],
-  "repository": "gitlab:mlvtito/aurelia-highlightjs",
+  "repository": "gitlab:r-w-x/aurelia/aurelia-highlightjs",
   "config": {
     "site_local": "site/local_packages/aurelia-highlightjs@current"
   },
