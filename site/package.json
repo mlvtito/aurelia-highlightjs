@@ -18,7 +18,8 @@
     "main": "app.ts",
     "dependencies": {
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.1",
-      "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.1"
+      "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.1",
+      "highlight.js": "npm:highlight.js@9.8.0"
     },
     "devDependencies": {
       "http": "npm:jspm-nodelibs-http@^0.2.0",
@@ -84,7 +85,7 @@
     }
   },
   "devDependencies": {
-    "jspm": "^0.17.0-beta.31",
+    "jspm": "0.17.0-beta.31",
     "live-server": "^1.1.0",
     "rimraf": "^2.5.4"
   },
