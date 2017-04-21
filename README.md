@@ -1,14 +1,14 @@
-= aurelia-hightlightjs
+# aurelia-hightlightjs
 Doc Writer <arnaud.fonce@r-w-x.net>
 
 This is an http://aurelia.io/[Aurelia] custom element for https://highlightjs.org/[highlight.js]
 
-== Documentation
+## Documentation
 
 If you are looking for documentation on how to use this custom elment, go to 
 http://aurelia-highlightjs.r-w-x.net/
 
-== Developers
+## Developers
 
 First you need to bundle the lib :
 
