@@ -1,7 +1,6 @@
 # aurelia-hightlightjs
-Doc Writer <arnaud.fonce@r-w-x.net>
 
-This is an http://aurelia.io/[Aurelia] custom element for https://highlightjs.org/[highlight.js]
+This is an [Aurelia](http://aurelia.io/) custom element for [highlight.js](https://highlightjs.org/)
 
 ## Documentation
 
@@ -12,24 +11,24 @@ http://aurelia-highlightjs.r-w-x.net/
 
 First you need to bundle the lib :
 
- npm run bundle
+``npm run bundle``
 
 Then copy the bundled lib to demo site :
 
- npm run site-deploy
+``npm run site-deploy``
 
 Go to site folder :
 
- cd ./site
+``cd ./site``
 
 Start development bundle watcher :
 
- npm run bundle:watch
+``npm run bundle:watch``
 
 And finally start server :
 
- npm start
+``npm start``
 
 Finally don't forget to unbundle before commiting :
 
- npm run unbundle
+``npm run unbundle``
