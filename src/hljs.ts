@@ -23,7 +23,9 @@ export class Hljs {
         "application/x-sh": "bash"
     };
 
-    constructor(private loader: Loader) { }
+    constructor(private loader: Loader) { 
+        this.themeChanged();
+    }
 
     attached() {
         if (!this.hasInclude()) {
