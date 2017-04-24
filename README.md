@@ -28,7 +28,3 @@ Start development bundle watcher :
 And finally start server :
 
 ``npm start``
-
-Finally don't forget to unbundle before commiting :
-
-``npm run unbundle``
