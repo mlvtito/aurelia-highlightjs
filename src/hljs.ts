@@ -3,8 +3,6 @@ import { HttpClient } from 'aurelia-fetch-client';
 
 import * as hljs from 'highlight.js';
 
-declare function require(moduleNames: string[], onLoad: (...args: any[]) => void): void;
-
 @customElement('hljs')
 @containerless
 export class Hljs {
