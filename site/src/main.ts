@@ -1,10 +1,21 @@
-    
-export function configure(aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .plugin('aurelia-highlightjs');
+import {Aurelia} from 'aurelia-framework';
 
-  aurelia.start().then(() => aurelia.setRoot());
+export function configure(aurelia: Aurelia) {
+    aurelia.use
+        .standardConfiguration()
+        .plugin('aurelia-highlightjs', config => config
+            .useLanguage("ruby")
+            .useLanguage("java")
+            .useLanguage("sql")
+            .useLanguage("css")
+            .useLanguage("go")
+            .useLanguage("ini")
+            .useLanguage("bash")
+            .useLanguage("python")
+            .useLanguage("javascript")
+            .useLanguage("xml")
+            );
+
+    aurelia.start().then(() => aurelia.setRoot());
 }
 
-  

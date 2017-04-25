@@ -1,7 +1,7 @@
 import { customElement, bindable, containerless, Loader, DOM } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 
-import * as hljs from 'highlight.js';
+import * as hljs from 'highlight.js/lib/highlight.js';
 
 @customElement('hljs')
 @containerless
