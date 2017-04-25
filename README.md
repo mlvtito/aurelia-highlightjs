@@ -28,4 +28,3 @@ Start development bundle watcher :
 And finally start server :
 
 ``npm start``
-
