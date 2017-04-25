@@ -14,7 +14,7 @@ export class Hljs {
     id: string = "hljsCodeTag" + Hljs.idCounter++;
     private static styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
-    private contentTypeMap = {
+    private contentTypeMap : { [key:string]:string; } = {
         "application/x-sql": "sql",
         "text/x-java-source": "java",
         "text/css": "css",
