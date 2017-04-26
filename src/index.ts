@@ -4,6 +4,7 @@ import {ConfigBuilder} from './config-builder';
 export function configure(aurelia: FrameworkConfiguration, configCallback?: Function) {
     aurelia.globalResources(['./hljs']);
     const builder: ConfigBuilder = aurelia.container.get(ConfigBuilder);
+    builder.setDefaultTheme();
     if (configCallback) {
         configCallback(builder);
     }else {

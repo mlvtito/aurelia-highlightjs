@@ -10,7 +10,7 @@ export class Hljs {
     private effectiveLanguage: string;
     private static idCounter: number = 0;
     id: string = "hljsCodeTag" + Hljs.idCounter++;
-    private static styleHeader: Node;
+    static styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
     private contentTypeMap : { [key:string]:string; } = {
         "application/x-sql": "sql",
@@ -20,7 +20,6 @@ export class Hljs {
     };
 
     constructor(private loader: Loader) { 
-        this.themeChanged();
     }
 
     attached() {
