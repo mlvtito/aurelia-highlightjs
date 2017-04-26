@@ -6,6 +6,7 @@ SystemJS.config({
     "app/": "src/"
   },
   browserConfig: {
+    "production": true,
     "baseURL": "."
   },
   devConfig: {
