@@ -289,8 +289,7 @@ SystemJS.config({
   map: {
     "aurelia-highlightjs": "local:aurelia-highlightjs@current",
     "text": "npm:systemjs-plugin-text@0.0.9",
-    "source-map-support": "@empty",
-    "highlight.js": "npm:highlight.js@9.8.0"
+    "source-map-support": "@empty"
   }
 });
 
@@ -303,6 +302,7 @@ SystemJS.config({
     "local:*.json"
   ],
   map: {
+    "highlight.js": "npm:highlight.js@9.8.0",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.1",
     "aurelia-binding": "npm:aurelia-binding@1.0.9",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.1",

@@ -1,5 +1,6 @@
 <template>
-    First you need to install aurelia-highlightjs with your favorite package manager.
+    <p>First you need to install aurelia-highlightjs with your favorite package manager.</p>
+    
     <div class="column-group horizontal-gutters">
         <div class="all-50 tiny-100 small-100">
             <h5>npm</h5>
@@ -10,7 +11,9 @@
             <hljs language="bash" theme="darcula">jspm install npm:aurelia-highlightjs</hljs>
         </div>
     </div>
-    Then import the highlight.js plugin into your Aurelia configuration file.
+    
+    <p>Then import the highlight.js plugin into your Aurelia configuration file.</p>
+    
     <hljs language="javascript" theme="darcula">export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
@@ -19,5 +22,33 @@
 
   aurelia.start().then(() => aurelia.setRoot());
 }</hljs>
-    That's all. You are ready to use the plugin.
+    
+    <p>That's all. You are ready to use the plugin.</p>
+    
+    <h5>Languages Loading</h5>
+    
+    <p>By default, the plugin loads every language available within highlight.js. If you need only a subset, you can 
+        configure the plugin this way :</p>
+    
+    <hljs language="javascript" theme="darcula">export function configure(aurelia) {
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
+    .plugin('aurelia-highlightjs', config => config
+      .useLanguage("java")
+      .useLanguage("javascript")
+    );
+
+  aurelia.start().then(() => aurelia.setRoot());
+}</hljs>
+    
+    <p>By loading only a subset of languages, you can bundle only needed language for your application. For instance, 
+        if you are using JSPM, you can use a command like this :</p>
+    
+    <hljs language="bash" theme="darcula">jspm bundle src/**/*.js + aurelia-bootstrapper /
+  + aurelia-highlightjs /
+  - highlight.js/lib/languages/* /
+  + highlight.js/lib/languages/java.js /
+  + highlight.js/lib/languages/javascript.js</hljs>
+    
 </template>
