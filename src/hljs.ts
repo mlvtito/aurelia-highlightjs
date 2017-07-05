@@ -7,19 +7,21 @@ export class Hljs {
     @bindable language: string;
     @bindable theme: string;
     @bindable include: string;
+    @bindable linenumbers: boolean;
+
     private effectiveLanguage: string;
     private static idCounter: number = 0;
     id: string = "hljsCodeTag" + Hljs.idCounter++;
     static styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
-    private contentTypeMap : { [key:string]:string; } = {
+    private contentTypeMap: { [key: string]: string; } = {
         "application/x-sql": "sql",
         "text/x-java-source": "java",
         "text/css": "css",
         "application/x-sh": "bash"
     };
 
-    constructor(private loader: Loader) { 
+    constructor(private loader: Loader) {
     }
 
     attached() {
@@ -40,11 +42,11 @@ export class Hljs {
     }
 
     private extractLanguageFromContentType(contentType: string) {
-        if (!this.language  && contentType != null) {
+        if (!this.language && contentType != null) {
             let extracted = contentType.split(";")[0].trim();
             if (extracted != null && this.contentTypeMap[extracted] != null) {
                 this.effectiveLanguage = this.contentTypeMap[extracted];
-            } else if (this.language ) {
+            } else if (this.language) {
                 this.effectiveLanguage = this.language;
             } else {
                 this.effectiveLanguage = undefined;
@@ -70,8 +72,21 @@ export class Hljs {
 
     private fixMarkupAndAppendToDom(value: string) {
         value = hljs.fixMarkup(value);
+        console.log(value);
+        value = this.lineGenerator(value);
+        console.log(value);
         document.querySelector("#" + this.id).innerHTML = value;
     }
+    
+    private lineGenerator(data:string): string {
+            var codeLineArray = data.split('\n');
+            var codeLineString = '';
+            for (var i = 0; i < codeLineArray.length; i++) {
+                codeLineString += '<span class="line-number">'+(i + 1)+ '</span>' + codeLineArray[i] + '\n';
+            }
+            return codeLineString;
+    }
+    
     private hasInclude(): boolean {
         return this.include != null;
     }

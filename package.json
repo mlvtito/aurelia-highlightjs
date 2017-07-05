@@ -10,9 +10,9 @@
     "plugin",
     "highlightjs"
   ],
-  "repository": { 
-    "type" : "git",
-    "url" : "https://gitlab.com/r-w-x/aurelia/aurelia-highlightjs.git"
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/r-w-x/aurelia/aurelia-highlightjs.git"
   },
   "config": {
     "site_local": "site/local_packages/aurelia-highlightjs@current"
