@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="all-50 small-100 tiny-100">
-                    <hljs include.bind="includePath" theme.bind="theme"/>
+                    <hljs include.bind="includePath" theme.bind="theme" linenumbers.bind="displaylines"/>
                 </div>
                 <div class="all-50 hide-small hide-tiny">
                     <div class="control-group">
@@ -64,6 +64,9 @@
                                 <option value="py">Python</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="control-group">
+                            <input type="checkbox" id="displaylines" name="displaylines" value="displaylines" checked.bind="displaylines"><label for="displaylines">Display Line Numbers</label>
                     </div>
                 </div>
             </div>

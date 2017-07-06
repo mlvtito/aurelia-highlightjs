@@ -1,5 +1,5 @@
-import { customElement, bindable, containerless, Loader, DOM } from 'aurelia-framework';
-import { HttpClient } from 'aurelia-fetch-client';
+import {customElement, bindable, containerless, Loader, DOM} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
 
 @customElement('hljs')
 @containerless
@@ -14,7 +14,7 @@ export class Hljs {
     id: string = "hljsCodeTag" + Hljs.idCounter++;
     static styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
-    private contentTypeMap: { [key: string]: string; } = {
+    private contentTypeMap: {[key: string]: string;} = {
         "application/x-sql": "sql",
         "text/x-java-source": "java",
         "text/css": "css",
@@ -72,23 +72,46 @@ export class Hljs {
 
     private fixMarkupAndAppendToDom(value: string) {
         value = hljs.fixMarkup(value);
-        console.log(value);
         value = this.lineGenerator(value);
-        console.log(value);
         document.querySelector("#" + this.id).innerHTML = value;
     }
-    
-    private lineGenerator(data:string): string {
-            var codeLineArray = data.split('\n');
-            var codeLineString = '';
-            for (var i = 0; i < codeLineArray.length; i++) {
-                codeLineString += '<span class="line-number">'+(i + 1)+ '</span>' + codeLineArray[i] + '\n';
+
+    private lineGenerator(data: string): string {
+        var codeLineArray = data.split('\n');
+        var codeLineString = '';
+        for (var i = 0; i < codeLineArray.length; i++) {
+            if (this.linenumbers) {
+                codeLineString += '<span class="line-number">' + (i + 1) + '</span>' + codeLineArray[i];
+            } else {
+                codeLineString += '<span> </span>' + codeLineArray[i];
             }
-            return codeLineString;
+            if (i != codeLineArray.length - 1) {
+                codeLineString = codeLineString + '\n';
+            }
+        }
+        return codeLineString;
     }
-    
+
     private hasInclude(): boolean {
         return this.include != null;
+    }
+
+    linenumbersChanged() {
+        var data = document.getElementById(this.id).innerText;
+        if (!this.linenumbers) {
+            data = data.split("\n").map(function (line, index) {
+                return line.substring(("" + (index + 1)).length);
+            }).reduce(function (a, b) {
+                return a + "\n" + b;
+            });
+        }else {
+            data = data.split("\n").map(function (line, index) {
+                return line.substring(1);
+            }).reduce(function (a, b) {
+                return a + "\n" + b;
+            });
+        }
+        this.highlightToDom(data);
     }
 
     themeChanged() {
