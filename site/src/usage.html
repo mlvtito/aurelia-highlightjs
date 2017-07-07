@@ -43,4 +43,19 @@ public class MyClass {
     <p>There is more than 70 themes available with highlight.js. Go to the 
     <a href="https://highlightjs.org/static/demo/">highlight.js demo</a> to 
     have a complete list.</p>
+    
+    <h5>linenumbers property</h5>
+    <div class="column-group horizontal-gutters">
+    <div class="tiny-100 small-100 all-50">
+        <p>You can display line numbers using "linenumbers" attribute. For instance...</p>
+        <hljs language="xml" theme="darcula">&lt;hljs include="MyClass.java" linenumbers="true"/&gt;</hljs>
+    </div>
+    <div class="tiny-100 small-100 all-50">
+        <p>...will be rendered like this.</p>
+        <hljs language="java" theme="darcula" linenumbers="true">public class MyClass {
+  public int data = 3;
+}  
+</hljs>
+    </div>
+    </div>
 </template>

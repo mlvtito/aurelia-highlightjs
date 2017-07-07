@@ -1,5 +1,5 @@
-import {customElement, bindable, containerless, Loader, DOM} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import { customElement, bindable, containerless, Loader, DOM } from 'aurelia-framework';
+import { HttpClient } from 'aurelia-fetch-client';
 
 @customElement('hljs')
 @containerless
@@ -14,7 +14,7 @@ export class Hljs {
     id: string = "hljsCodeTag" + Hljs.idCounter++;
     static styleHeader: Node;
     private httpClient: HttpClient = new HttpClient();
-    private contentTypeMap: {[key: string]: string;} = {
+    private contentTypeMap: { [key: string]: string; } = {
         "application/x-sql": "sql",
         "text/x-java-source": "java",
         "text/css": "css",
@@ -26,6 +26,7 @@ export class Hljs {
 
     attached() {
         if (!this.hasInclude()) {
+            this.effectiveLanguage = this.language;
             this.highlightToDom();
         }
     }
@@ -55,13 +56,12 @@ export class Hljs {
     }
 
     private highlightToDom(data?: string) {
-        if (data != null) {
-            let result: hljs.IHighlightResultBase = this.highlight(data);
-            this.effectiveLanguage = result.language;
-            this.fixMarkupAndAppendToDom(result.value);
-        } else {
-            hljs.highlightBlock(document.querySelector("#" + this.id));
+        if (data == null) {
+            data = document.getElementById(this.id).textContent;
         }
+        let result: hljs.IHighlightResultBase = this.highlight(data);
+        this.effectiveLanguage = result.language;
+        this.fixMarkupAndAppendToDom(result.value);
     }
 
     private highlight(data: string): hljs.IHighlightResultBase {
@@ -97,21 +97,23 @@ export class Hljs {
     }
 
     linenumbersChanged() {
-        var data = document.getElementById(this.id).innerText;
-        if (!this.linenumbers) {
-            data = data.split("\n").map(function (line, index) {
-                return line.substring(("" + (index + 1)).length);
-            }).reduce(function (a, b) {
-                return a + "\n" + b;
-            });
-        }else {
-            data = data.split("\n").map(function (line, index) {
-                return line.substring(1);
-            }).reduce(function (a, b) {
-                return a + "\n" + b;
-            });
+        if (document.getElementById(this.id) != null) {
+            var data = document.getElementById(this.id).innerText;
+            if (!this.linenumbers) {
+                data = data.split("\n").map(function(line, index) {
+                    return line.substring(("" + (index + 1)).length);
+                }).reduce(function(a, b) {
+                    return a + "\n" + b;
+                });
+            } else {
+                data = data.split("\n").map(function(line, index) {
+                    return line.substring(1);
+                }).reduce(function(a, b) {
+                    return a + "\n" + b;
+                });
+            }
+            this.highlightToDom(data);
         }
-        this.highlightToDom(data);
     }
 
     themeChanged() {
