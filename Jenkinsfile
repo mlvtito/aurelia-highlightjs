@@ -14,6 +14,7 @@ node {
    withEnv(["PATH=${tool 'NodeJS_4.6.0'}/bin:${PATH}"]) {
      stage('Install Dependencies') {
          sh "npm install"
+         sh "npm run prepare-dev"
      }
      stage("Bundle Library") {
          sh "npm run bundle"
