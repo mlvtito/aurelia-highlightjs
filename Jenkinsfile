@@ -4,7 +4,7 @@ node {
    def nodeHome
    stage('Preparation') {
       deleteDir()
-      git 'https://backend.r-w-x.net/scm/git/aurelia/aurelia-highlightjs.git'
+      git 'ssh://ci@91.121.149.68:29418/aurelia/aurelia-highlightjs.git'
       nodeHome = tool 'NodeJS_4.6.0'
       env.PATH = "${nodeHome}/bin:${env.PATH}"
       sh "npm -v"
@@ -56,4 +56,10 @@ if( lastPublishedVersion != currentVersion ) {
             }
         }
     }
+    stage('Tag Version') {
+    node {
+      sh "git tag " + currentVersion
+      sh "git push --tags"
+    }
+  }
 }
