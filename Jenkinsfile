@@ -24,6 +24,8 @@ node {
      }
      stage("Package Demo Site") {
          sh "npm run site-package"
+         lastPublishedVersion = sh(script: 'npm view aurelia-highlightjs version', returnStdout: true).trim()
+         currentVersion = sh(script: 'npm version | grep aurelia-highlightjs | cut -d "\'" -f 4', returnStdout: true).trim()
      }
    }
    
@@ -33,22 +35,25 @@ node {
       //archive 'target/*.jar'
    //}
 }
-stage('Publish Demo Site') {
-    timeout(time:5, unit:'DAYS') {
-       input 'Should we proceed to the publishing ?'
+
+if( lastPublishedVersion != currentVersion ) {
+    stage('Publish Demo Site') {
+        timeout(time:5, unit:'DAYS') {
+           input 'Should we proceed to the publishing ?'
+        }
+        node {
+          sh "scp dist-site/aurelia-highlightjs-site-*.tgz rwxywdhy@ssh.cluster002.ovh.net:/homez.32/rwxywdhy/aurelia-highlightjs-depot/"
+          sh 'ssh rwxywdhy@ssh.cluster002.ovh.net "tar xzvf /homez.32/rwxywdhy/aurelia-highlightjs-depot/$(basename ./dist-site/aurelia-highlightjs-site-*.tgz) -C /homez.32/rwxywdhy/aurelia-highlightjs"'
+        }
     }
-    node {
-      sh "scp dist-site/aurelia-highlightjs-site-*.tgz rwxywdhy@ssh.cluster002.ovh.net:/homez.32/rwxywdhy/aurelia-highlightjs-depot/"
-      sh 'ssh rwxywdhy@ssh.cluster002.ovh.net "tar xzvf /homez.32/rwxywdhy/aurelia-highlightjs-depot/$(basename ./dist-site/aurelia-highlightjs-site-*.tgz) -C /homez.32/rwxywdhy/aurelia-highlightjs"'
-    }
-}
-stage('Publish to NPM') {
-    timeout(time:5, unit:'DAYS') {
-       input 'Should we deliver this version ?'
-    }
-    node {
-        withEnv(["PATH=${tool 'NodeJS_4.6.0'}/bin:${PATH}"]) {
-            sh "npm publish"
+    stage('Publish to NPM') {
+        timeout(time:5, unit:'DAYS') {
+           input 'Should we deliver this version ?'
+        }
+        node {
+            withEnv(["PATH=${tool 'NodeJS_4.6.0'}/bin:${PATH}"]) {
+                sh "npm publish"
+            }
         }
     }
 }
