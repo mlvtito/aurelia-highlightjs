@@ -42,8 +42,8 @@ if( lastPublishedVersion != currentVersion ) {
            input 'Should we proceed to the publishing ?'
         }
         node {
-          sh "scp dist-site/aurelia-highlightjs-site-*.tgz rwxywdhy@ssh.cluster002.ovh.net:/homez.32/rwxywdhy/aurelia-highlightjs-depot/"
-          sh 'ssh rwxywdhy@ssh.cluster002.ovh.net "tar xzvf /homez.32/rwxywdhy/aurelia-highlightjs-depot/$(basename ./dist-site/aurelia-highlightjs-site-*.tgz) -C /homez.32/rwxywdhy/aurelia-highlightjs"'
+          sh "scp dist-site/aurelia-highlightjs-site-*.tgz rwxywdhy@ftp.r-w-x.net:/homez.32/rwxywdhy/aurelia-highlightjs-depot/"
+          sh 'ssh rwxywdhy@ftp.r-w-x.net "tar xzvf /homez.32/rwxywdhy/aurelia-highlightjs-depot/$(basename ./dist-site/aurelia-highlightjs-site-*.tgz) -C /homez.32/rwxywdhy/aurelia-highlightjs"'
         }
     }
     stage('Publish to NPM') {
